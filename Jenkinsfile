@@ -52,8 +52,9 @@ pipeline {
  stage('Run Docker container on remote hosts') {
              
             steps {
-                sh "docker -H ssh://ubuntu@3.75.171.17 run -d -p 8003:8080 gabrielagherman/samplewebapp"
- 
+		withAWS(credentials: 'Jenkins', region: 'eu-central-1'){
+		sh "docker -H ssh://ubuntu@3.75.171.17 run -d -p 8003:8080 gabrielagherman/samplewebapp"
+		}
             }
         }
     }
