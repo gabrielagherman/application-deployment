@@ -53,7 +53,7 @@ pipeline {
              
             steps {
 		withAWS(credentials: 'Jenkins', region: 'eu-central-1'){
-		sh "docker -H ssh://ubuntu@3.75.171.17 run -d -p 8003:8080 gabrielagherman/samplewebapp"
+		sh "docker -H ssh -i aws-key.pem ubuntu@3.75.171.17 run -d -p 8003:8080 gabrielagherman/samplewebapp"
 		}
             }
         }
