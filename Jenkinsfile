@@ -52,8 +52,10 @@ pipeline {
  stage('Run Docker container on remote hosts') {
              
             steps {
-		withAWS(credentials: 'credentiale-masina', region: 'eu-central-1'){
-		sh "ssh ubuntu@3.127.220.73 docker run -d -p 8003:8080 gabrielagherman/samplewebapp"
+		//withAWS(credentials: 'credentiale-masina', region: 'eu-central-1'){
+		sshagent(credentials : ['credential-masina']) {
+		    sh "ssh ubuntu@3.127.220.73" 
+		    sh "docker run -d -p 8003:8080 gabrielagherman/samplewebapp"
 		}
             }
         }
