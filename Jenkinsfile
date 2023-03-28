@@ -55,7 +55,7 @@ pipeline {
 		//withAWS(credentials: 'credentiale-masina', region: 'eu-central-1'){
 		sshagent(['ubuntu']) {
 		   // sh "ssh -tt ubuntu@3.71.176.233" 
-		    sh "ssh ubuntu@3.71.176.233 docker run -d -p 8003:8080 gabrielagherman/samplewebapp"
+		    sh "sudo ssh ubuntu@3.71.176.233 docker run -d -p 8003:8080 gabrielagherman/samplewebapp"
 		   
 		   // sh "docker run -d -p 8003:8080 gabrielagherman/samplewebapp"
 		}
