@@ -53,7 +53,7 @@ pipeline {
              
             steps {
 		//withAWS(credentials: 'credentiale-masina', region: 'eu-central-1'){
-		sshagent(['ubuntu']) {
+		sshagent(['credentials']) {
 		   // sh "ssh -tt ubuntu@3.71.176.233" 
 		    sh "echo gabi1234 | sudo -S ssh ubuntu@3.71.176.233 docker run -d -p 8003:8080 gabrielagherman/samplewebapp"
 		   
