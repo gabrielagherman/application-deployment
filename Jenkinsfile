@@ -57,7 +57,7 @@ pipeline {
 		   // sh "ssh -tt ubuntu@3.71.176.233" 
 		    sh "ssh -T ubuntu@3.71.176.233"
 		    sh "docker run -d -p 8003:8080 gabrielagherman/samplewebapp"
-		}
+		//}
             }
         }
     }
