@@ -56,7 +56,7 @@ pipeline {
 		//sshagent(credentials : ['credentiale-masina']) {
 		    sh "ssh ubuntu@3.71.176.233" 
 		    sh "docker run -d -p 8003:8080 gabrielagherman/samplewebapp"
-		}
+		//}
             }
         }
     }
