@@ -52,6 +52,7 @@ pipeline {
  
 	 stage("Git Checkout"){
 		 steps{
+			 sh 'pwd'
 			 sh 'git clone https://github.com/gabrielagherman/application-deployment.git'
 		 	 sh 'pwd'
 		 }
