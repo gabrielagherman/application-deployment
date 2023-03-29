@@ -60,7 +60,9 @@ pipeline {
 	 stage ("Run ansible playbook on remote hosts")
 	 {
 		 steps{
-			 ansiblePlaybook credentialsId: 'credentialeptmasina', disableHostKeyChecking: true, installation: 'Ansible', inventory: '/var/lib/jenkins/workspace/auto-deploy/application-deployment/inventory', playbook: '/var/lib/jenkins/workspace/auto-deploy/application-deployment/playbook.yaml'
+			sh 'cd /var/lib/jenkins/workspace/auto-deploy/application-deployment'
+			sh 'pwd'
+			ansiblePlaybook credentialsId: 'credentialeptmasina', disableHostKeyChecking: true, installation: 'Ansible', inventory: '/var/lib/jenkins/workspace/auto-deploy/application-deployment/inventory', playbook: '/var/lib/jenkins/workspace/auto-deploy/application-deployment/playbook.yaml'
 		 }
 	 }
 	 
