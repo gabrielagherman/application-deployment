@@ -50,11 +50,11 @@ pipeline {
 //             }
 //         }
  
-	 stage("Git Checkout"){
-		 steps{
-			 sh 'git clone https://github.com/gabrielagherman/application-deployment.git'
-		 }
-	 }
+	// stage("Git Checkout"){
+		// steps{
+		//	 sh 'git clone https://github.com/gabrielagherman/application-deployment.git'
+		 //}
+	 //}
 	 stage ("Run ansible playbook on remote hosts")
 	 {
 		 steps{
