@@ -58,7 +58,7 @@ pipeline {
 	 stage ("Run ansible playbook on remote hosts")
 	 {
 		 steps{
-			 sh 'ansible-playbook playbook -i inventory --key-file aws-key.pem'
+			 sh 'ansible-playbook playbook.yaml -i inventory --key-file aws-key.pem'
 		 }
 	 }
 	 
