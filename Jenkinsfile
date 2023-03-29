@@ -60,9 +60,10 @@ pipeline {
 	 stage ("Run ansible playbook on remote hosts")
 	 {
 		 steps{
-			 sh 'pwd'
-			 sh 'cd /var/lib/jenkins/workspace/auto-deploy/application-deployment'
-			 sh 'ansible-playbook playbook.yaml -i inventory --key-file aws-key.pem'
+			// sh 'pwd'
+			// sh 'cd /etc/ansible'
+			// sh 'ansible-playbook playbooktest.yaml -i inventory --key-file aws-key.pem'
+			 ansiblePlaybook credentialsId: 'credentialeptmasina', disableHostKeyChecking: true, installation: 'Ansible', inventory: '/etc/ansible/inventory', playbook: '/etc/ansible/playbooktest.yaml'
 		 }
 	 }
 	 
