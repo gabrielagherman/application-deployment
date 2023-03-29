@@ -1,0 +1,12 @@
+---
+- name: Deploy docker container on AWS
+  hosts: aws-tomcatserver
+  
+  tasks:
+    - name: run docker
+      docker_container: 
+        name: java_container
+        image: gabrielagherman/samplewebapp:latest
+        state: started
+        restart: yes
+        
