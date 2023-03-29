@@ -50,16 +50,18 @@ pipeline {
 //             }
 //         }
  
-	 stage("Git Checkout"){
-		 steps{
-			 sh 'pwd'
-			 sh 'git clone https://github.com/gabrielagherman/application-deployment.git'
-		 	 sh 'pwd'
-		 }
-	 }
+	// stage("Git Checkout"){
+	//	 steps{
+	//		 sh 'pwd'
+	//		 sh 'git clone https://github.com/gabrielagherman/application-deployment.git'
+	//	 	 sh 'pwd'
+	//	 }
+	 //}
 	 stage ("Run ansible playbook on remote hosts")
 	 {
 		 steps{
+			 sh 'pwd'
+			 sh 'cd /var/lib/jenkins/workspace/auto-deploy/application-deployment'
 			 sh 'ansible-playbook playbook.yaml -i inventory --key-file aws-key.pem'
 		 }
 	 }
