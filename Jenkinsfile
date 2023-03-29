@@ -49,17 +49,32 @@ pipeline {
  
 //             }
 //         }
- stage('Run Docker container on remote hosts') {
+ 
+	 stage("Git Checkout"){
+		 steps{
+			 sh 'git clone https://github.com/gabrielagherman/application-deployment.git'
+		 }
+	 }
+	 stage ("Run ansible playbook on remote hosts")
+	 {
+		 steps{
+			 sh 'ansible-playbook playbook -i inventory --key-file aws-key.pem'
+		 }
+	 }
+	 
+	 
+	 
+ // stage('Run Docker container on remote hosts') {
              
-            steps {
+   //         steps {
 		//withAWS(credentials: 'credentiale-masina', region: 'eu-central-1'){
 		//sshagent(['credentials']) {
 		   // sh "ssh -tt ubuntu@3.71.176.233" 
-		    sh "ssh ubuntu@3.71.176.233 docker run -d -p 8003:8080 gabrielagherman/samplewebapp"
+	//	    sh "ssh ubuntu@3.71.176.233 docker run -d -p 8003:8080 gabrielagherman/samplewebapp"
 		   
 		   // sh "docker run -d -p 8003:8080 gabrielagherman/samplewebapp"
-		}
-            }
+		//}
+            //}
         
    // }
 	}
