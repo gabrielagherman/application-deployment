@@ -64,8 +64,8 @@ pipeline {
 			sh 'cd /etc/ansible'
 			sh 'pwd'
 			//ansiblePlaybook (credentialsId: 'credentialeptmasina', disableHostKeyChecking: true, installation: 'Ansible', inventory: '/var/lib/jenkins/workspace/auto-deploy/application-deployment/inventory', playbook: '/var/lib/jenkins/workspace/auto-deploy/application-deployment/playbook.yaml')
-		 	ansiblePlaybook credentialsId: 'credentialeptmasina', disableHostKeyChecking: true, installation: 'Ansible', inventory: '/var/lib/jenkins/workspace/auto-deploy/application-deployment/inventory', playbook: '/var/lib/jenkins/workspace/auto-deploy/application-deployment/playbook.yaml'
-			 
+		 	//ansiblePlaybook credentialsId: 'credentialeptmasina', disableHostKeyChecking: true, installation: 'Ansible', inventory: '/var/lib/jenkins/workspace/auto-deploy/application-deployment/inventory', playbook: '/var/lib/jenkins/workspace/auto-deploy/application-deployment/playbook.yaml'
+			sh 'ansible-playbook ./application-deployment/playbook.yaml -i ./application-deployment/inventory --key-file ./application-deployment/aws-key.pem'
 			 //ansiblePlaybook credentialsId: 'credentialeptmasina', disableHostKeyChecking: true, installation: 'Ansible', inventory: '/etc/ansible/inventory', playbook: '/etc/ansible/playbooktest.yaml'
 		 }
 	 }
