@@ -10,3 +10,5 @@
         image: gabrielagherman/samplewebapp:latest
         state: started
         restart: yes
+        ports:
+          - "8003:8080"
